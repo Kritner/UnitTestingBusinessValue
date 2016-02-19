@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnitTestingBusinessValue.Business;
 
 namespace UnitTestingBusinessValue.ConsoleApp
 {
@@ -19,7 +20,17 @@ namespace UnitTestingBusinessValue.ConsoleApp
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello world");
+            Console.WriteLine("Enter a number:");
+
+            int parsedValue = 0;
+            int.TryParse(Console.ReadLine(), out parsedValue);
+
+            Console.WriteLine("\n");
+
+            NumberReturner nr = new NumberReturner();
+            Console.WriteLine(nr.ReturnNumberAsString(parsedValue));
+
+            Console.WriteLine("\n");
         }
     }
 }
