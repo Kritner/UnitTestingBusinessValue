@@ -15,6 +15,9 @@ namespace UnitTestingBusinessValue.Business.Tests
     public class NumberReturnerTests
     {
 
+        /// <summary>
+        /// Ensure ReturnNumberAsString has appropriate return type
+        /// </summary>
         [TestMethod]
         public void NumberReturner_ReturnNumberAsString_CorrectReturnTypeIsString()
         {
