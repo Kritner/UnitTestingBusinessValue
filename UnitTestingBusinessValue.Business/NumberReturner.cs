@@ -23,11 +23,11 @@ namespace UnitTestingBusinessValue.Business
         /// <returns>The number as string</returns>
         public string ReturnNumberAsString(int numberToReturn)
         {
-            if (numberToReturn % 3 == 1 && numberToReturn % 5 == 1)
+            if (numberToReturn % 3 == 0 && numberToReturn % 5 == 0)
                 return "FizzBuzz";
-            else if (numberToReturn % 3 == 1)
+            else if (numberToReturn % 3 == 0)
                 return "Fizz";
-            else if (numberToReturn % 5 == 1)
+            else if (numberToReturn % 5 == 0)
                 return "Buzz";
 
             return numberToReturn.ToString();

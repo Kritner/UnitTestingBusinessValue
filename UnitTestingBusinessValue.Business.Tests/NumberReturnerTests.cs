@@ -33,13 +33,16 @@ namespace UnitTestingBusinessValue.Business.Tests
         }
 
         /// <summary>
-        /// When ReturnNumberAsString is provided a number, the number is returned as a string
+        /// When ReturnNumberAsString is provided a number, the number is returned as a string.  
         /// </summary>
+        /// <remarks>
+        /// Provided number must not be a factor of 3 or 5 to receive the same number back.
+        /// </remarks>
         [TestMethod]
         public void NumberReturner_ReturnNumberAsString_ReturnsNumberThatWasProvided()
         {
             // Arrange
-            int expected = 42;
+            int expected = 7;
             NumberReturner biz = new NumberReturner();
 
             // Act
@@ -47,6 +50,26 @@ namespace UnitTestingBusinessValue.Business.Tests
 
             // Assert
             Assert.AreEqual(expected.ToString(), results);
+        }
+
+        [TestMethod]
+        public void NumberReturner_ReturnNumberAsString_SpecialCasesReturnValid()
+        {
+            // Arrange
+            NumberReturner rt = new NumberReturner();
+            int modThree = 9;
+            int modFive = 10;
+            int modThreeAndFive = 15;
+
+            // Act
+            var resultsModThree = rt.ReturnNumberAsString(modThree);
+            var resultsModFive = rt.ReturnNumberAsString(modFive);
+            var resultsModThreeAndFIve = rt.ReturnNumberAsString(modThreeAndFive);
+
+            // Assert
+            Assert.AreEqual("Fizz", resultsModThree, nameof(resultsModThree));
+            Assert.AreEqual("Buzz", resultsModFive, nameof(resultsModFive));
+            Assert.AreEqual("FizzBuzz", resultsModThreeAndFIve, nameof(resultsModThreeAndFIve));
         }
 
     }
