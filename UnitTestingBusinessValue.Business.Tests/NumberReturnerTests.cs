@@ -52,6 +52,11 @@ namespace UnitTestingBusinessValue.Business.Tests
             Assert.AreEqual(expected.ToString(), results);
         }
 
+        /// <summary>
+        /// number mod 3 and 5 returns FizzBuzz
+        /// number mod 3 returns Fizz
+        /// number mod 5 returns Buzz
+        /// </summary>
         [TestMethod]
         public void NumberReturner_ReturnNumberAsString_SpecialCasesReturnValid()
         {
